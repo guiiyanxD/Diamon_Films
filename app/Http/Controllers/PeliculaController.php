@@ -16,7 +16,7 @@ class PeliculaController extends Controller
      */
     public function index()
     {
-        $peliculas = Pelicula::with('categoria')->with('User')->get();
+        $peliculas = Pelicula::with('categoria')->with('UserRequest')->get();
         return view('peliculas.index',['peliculas'=>$peliculas]);
     }
 
@@ -27,7 +27,7 @@ class PeliculaController extends Controller
      */
     public function create()
     {
-        $peliculas = Pelicula::with('categoria')->with('User')->get();
+        $peliculas = Pelicula::with('categoria')->with('UserRequest')->get();
         $categorias =    Categoria::all();
         $user = User::all();
         return view('peliculas.create',['peliculas'=>$peliculas, 'categorias'=>$categorias, 'user'=>$user]);

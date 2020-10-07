@@ -22,4 +22,8 @@ class Empresa extends Model
     public function Llave(){
         return $this->hasMany(Llave::class, 'empresa_id');
     }
+
+    public function Distribucion(){
+        return $this->hasMany(Distribucion::class, 'empresa_id');
+    }
 }

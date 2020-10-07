@@ -7,6 +7,17 @@
     body{
         background-color: #ededed;
     }
+    hr{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border: 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    div.form-row{
+        padding-top: 2rem;
+    }
+
     #wrapper {
         padding-left: 0;
         -webkit-transition: all 0.5s ease;

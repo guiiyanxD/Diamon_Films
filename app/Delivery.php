@@ -19,4 +19,8 @@ class Delivery extends Model
         return $this->belongsTo(Empresa::class,'empresa_id');
     }
 
+    public function Distribucion(){
+        return $this->hasMany(Distribucion::class, 'delivery_id');
+    }
+
 }

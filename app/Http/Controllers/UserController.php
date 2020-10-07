@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\LogicaRequest;
+
 use App\Persona;
 use App\User;
-use Illuminate\Http\Request;
+use Illuminate\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -30,7 +30,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('User.create');
+        return view('UserRequest.create');
     }
 
     /**
@@ -39,7 +39,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         $persona = new Persona();
         $persona->nombre = $request->input('nombre');
@@ -82,7 +82,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $usuario = User::findOrFail($id);
-        return view('User.edit',['usuario'=>$usuario]);
+        return view('UserRequest.edit',['usuario'=>$usuario]);
     }
 
     /**

@@ -22,4 +22,8 @@ class Pelicula extends Model
     public function Llave(){
         return $this->hasMany(Llave::class, 'pelicula_id');
     }
+
+    public function distribucion(){
+        return $this->hasMany(Distribucion::class, 'pelicula_id');
+    }
 }

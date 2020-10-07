@@ -17,7 +17,7 @@ class ContratoLaboralController extends Controller
     public static $Tipo_contrato = 1;
     public function index()
     {
-        $contrato = Contrato_Laboral::with('Contrato')->with('User')->get();
+        $contrato = Contrato_Laboral::with('Contrato')->with('UserRequest')->get();
         return view('ContratosLaborales.index',['contrato'=>$contrato]);
     }
 

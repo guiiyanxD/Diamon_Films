@@ -52,5 +52,14 @@
         <li>
             <a href="{{route('Delivery.index')}}">Gestionar Deliveries</a>
         </li>
+        <li>
+            <a href="{{route('estados.index')}}">Gestionar Estados</a>
+        </li>
+        <li>
+            <a href="{{route('cuentas.index')}}">Gestionar Cuentas</a>
+        </li>
+        <li>
+            <a href="{{route('distribuciones.index')}}">Solicitud de Distribucion</a>
+        </li>
     @endguest
 </ul>

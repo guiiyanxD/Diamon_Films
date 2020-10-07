@@ -20,9 +20,11 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->unsignedBigInteger('estado_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
 
+            $table->foreign('estado_id')->references('id_estado')->on('estados')->onDelete('cascade');
             $table->foreign('persona_id')->references('id_persona')->on('personas')->onDelete('cascade');
         });
     }

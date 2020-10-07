@@ -6,18 +6,11 @@
             <div style="text-align: center">
                 <h1>Formulario de edicion de una categoria</h1>
             </div>
-
-            <!-- Material form register -->
             <div class="card">
-
                 <h5 class="card-header info-color white-text text-center py-4">
                     <strong>Datos de categoria</strong>
                 </h5>
-
-                <!--Card content-->
                 <div class="card-body px-lg-5 pt-0">
-
-                    <!-- Form -->
                     <form class="text-center" style="color: #757575;" action="{{route('categorias.update',[$categorias->id_categoria]) }}" method="POST">
                         @csrf
                         @method("PUT")

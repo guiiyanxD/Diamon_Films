@@ -19,8 +19,10 @@ class CreateContratosTable extends Migration
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
             $table->integer('tipo');
+            $table->unsignedBigInteger('estado_id')->default(1);
             $table->timestamps();
 
+            $table->foreign('estado_id')->references('id_estado')->on('estados')->onDelete('cascade');
             $table->foreign('admin_id')->references('id_admin')->on('users')->onDelete('cascade');
         });
     }

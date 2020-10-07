@@ -50,5 +50,15 @@
     });
 </script>
 
+<script>
+    $(function () {
+        $('.datepicker').datepicker({
+            clearBtn: true,
+            format: "yyyy-mm-dd"
+        });
+
+    });
+</script>
+
 </body>
 </html>

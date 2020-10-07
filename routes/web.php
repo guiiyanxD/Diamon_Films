@@ -16,18 +16,39 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+route::post('/usuarios', 'UserController@store')->name('usuarios.store');
 Auth::routes();
 Route::middleware(['auth'])->group(function() {
-route::resource('/representantes', 'RepresentanteController');
-route::resource('/usuarios','UserController');
-route::resource('/categorias', 'CategoriaController');
-route::resource('/peliculas','PeliculaController');
-route::resource('/empresas', 'EmpresaController');
-route::resource('/contratos_laborales', 'ContratoLaboralController');
-route::resource('/contratos_acuerdos', 'ContratoAcuerdoController');
-route::resource('/llaves','LlaveController');
-route::resource('/Delivery','DeliveryController');
+    route::resource('/representantes', 'RepresentanteController');
+    //route::resource('/usuarios','UserController');
+    route::get('/usuarios','UserController@index')->name('usuarios.index');
+    route::get('/usuarios/create', 'UserController@create')->name('usuarios.create');
+    route::get('/usuarios/{id}/edit', 'UserController@edit')->name('usuarios.edit');
+    route::put('/usuarios/{id}/', 'UserController@update')->name('usuarios.update');
+    route::get('/usuarios/{id}/destroy', 'UserController@destroy')->name('usuarios.destroy');
+    route::resource('/categorias', 'CategoriaController');
+    route::resource('/peliculas','PeliculaController');
+    route::resource('/empresas', 'EmpresaController');
+    route::resource('/contratos_laborales', 'ContratoLaboralController');
+    route::resource('/contratos_acuerdos', 'ContratoAcuerdoController');
+    route::resource('/llaves','LlaveController');
+    route::resource('/Delivery','DeliveryController');
+    route::resource('/estados', 'EstadoController');
+    route::resource('/cuentas','CuentaController');
+    route::resource('/facturas','FacturaController');
+    route::get('/facturas/{id}/descargar_factura', 'FacturaController@CrearPDF')->name('facturas.descargar');
+    //route::resource('/solicitud_distribucion','DistribucionController')->name('','distribuciones');
+        //RUTAS DE DISTRIBUCIONES//
+    route::get('/solicitud_distribucion','DistribucionController@index')->name('distribuciones.index');
+    route::post('/solicitud_distribucion', 'DistribucionController@store')->name('distribuciones.store');
+    route::get('/solicitud_distribucion/create', 'DistribucionController@create')->name('distribuciones.create');
+    route::get('/solicitud_distribucion/{id}/edit', 'DistribucionController@edit')->name('distribuciones.edit');
+    route::put('/solicitud_distribucion/{id}/', 'DistribucionController@update')->name('distribuciones.update');
+    route::get('/solicitud_distribucion/{id}/destroy', 'DistribucionController@destroy')->name('distribuciones.destroy');
+    route::get('/solicitud_distribucion/{id}/finalizar', 'DistribucionController@FinalizarDist')->name('distribuciones.finalizar');
+    route::get('/solicitud_distribucion/{id}/suspender', 'DistribucionCo0000ntroller@SuspenderDist')->name('distribuciones.suspender');
+    route::get('/solicitud_distribucion/{id}/generar_factura/', 'DistribucionController@GenerarFactura')->name('distribuciones.facturar');
+
 });
 
 
@@ -44,7 +65,7 @@ route::get('test_representante', function (){
 });
 
 route::get('test_pelicula', function(){
-    $relacion_categoria = \App\Pelicula::with('categoria')->with('User')->get();
+    $relacion_categoria = \App\Pelicula::with('categoria')->with('UserRequest')->get();
     $relacion_peliculas = \App\Categoria::with('peliculas')->get();
     return ['rekacion_categoria'=>$relacion_categoria, 'relacion_peliculas'=>$relacion_peliculas];
 });

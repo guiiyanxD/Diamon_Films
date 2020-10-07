@@ -74,4 +74,21 @@
                 @endsection
 
             </div>
-  
+    <script>
+        i = 1
+        numerador=1
+        denominador=1
+        suma=1
+        division =1
+        n=7
+        while (i <= n){
+            numerador = n+n
+            denominador = n*i
+            division= numerador / denominador
+            suma = suma + division
+            n = n-1
+            i =  i+1``
+        }
+        console.log(suma)
+
+    </script>
